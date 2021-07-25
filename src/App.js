@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ToDo from './components/ToDo'
 import Form from './components/Form'
 import FilterButton from './components/FilterButton'
 
 function App(props) {
 
-  const taskList = props.tasks.map(task => ( 
+  const [tasks, setTasks] = useState(props.tasks)
+
+  const taskList = tasks.map(task => ( 
       <ToDo 
         id={task.id} 
         name={task.name} 
@@ -14,12 +16,17 @@ function App(props) {
       />
   ))
 
+  const addTask = name => {
+    const newTask = { id: "id", name: name, completed: false }
+    setTasks([...tasks, newTask])
+  }
+
   return (
 
     <div className="todoapp stack-large">
       <h1>My Agenda</h1>
 
-      <Form />
+      <Form addTask={addTask} />
 
       <div className="filters btn-group stack-exception">
 
