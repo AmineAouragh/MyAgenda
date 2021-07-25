@@ -2,6 +2,15 @@ import ToDo from './components/ToDo'
 
 function App(props) {
 
+  const taskList = props.tasks.map(task => ( 
+      <ToDo 
+        id={task.id} 
+        name={task.name} 
+        completed={task.completed} 
+        key={task.id}
+      />
+  ))
+
   return (
 
     <div className="todoapp stack-large">
@@ -56,11 +65,7 @@ function App(props) {
         aria-labelledby="list-heading"
       >
         
-        <ToDo name="Eat" completed={true}/>
-
-        <ToDo name="Sleep" completed={false} />
-
-        <ToDo name="Repeat" completed={false} />
+        {taskList}
 
       </ul>
     </div>
