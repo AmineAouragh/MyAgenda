@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { nanoid } from 'nanoid'
 import ToDo from './components/ToDo'
 import Form from './components/Form'
 import FilterButton from './components/FilterButton'
@@ -17,9 +18,12 @@ function App(props) {
   ))
 
   const addTask = name => {
-    const newTask = { id: "id", name: name, completed: false }
+    const newTask = { id: `todo-${nanoid()}`, name: name, completed: false }
     setTasks([...tasks, newTask])
   }
+
+  const taskNoun = taskList.length !== 1 ? "tasks": "task"
+  const headingText = `${taskList.length} ${taskNoun} remaining`
 
   return (
 
@@ -37,7 +41,7 @@ function App(props) {
       </div>
 
       <h2 id="list-heading">
-        3 tasks remaining
+        {headingText}
       </h2>
 
       <ul
