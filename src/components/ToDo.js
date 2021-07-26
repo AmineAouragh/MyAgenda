@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import usePrevious from '../Previous'
+import usePrevious from '../functions/Previous'
 
 
 export default function Todo(props) {
