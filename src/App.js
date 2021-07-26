@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
 import { nanoid } from 'nanoid'
 import ToDo from './components/ToDo'
 import Form from './components/Form'
 import FilterButton from './components/FilterButton'
+import usePrevious from './Previous'
 
 
 const FILTER_MAP = {
@@ -77,6 +77,10 @@ function App(props) {
   const taskNoun = taskList.length !== 1 ? "tasks": "task"
   const headingText = `${taskList.length} ${taskNoun} remaining`
 
+  const listHeadingRef = useRef(null)
+
+  const prevTaskLength = usePrevious(tasks.length)
+
   return (
 
     <div className="todoapp stack-large">
@@ -90,7 +94,7 @@ function App(props) {
 
       </div>
 
-      <h2 id="list-heading">
+      <h2 id="list-heading" tabIndex="-1" ref={listHeadingRef} >
         {headingText}
       </h2>
 
