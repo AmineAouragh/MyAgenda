@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import usePrevious from '../functions/Previous'
+import { BiEdit } from 'react-icons/bi'
 
 
 export default function Todo(props) {
@@ -80,11 +81,13 @@ export default function Todo(props) {
 
               <button 
                  type="button" 
-                 className="btn"
+                 className="btn btn__edit"
                  onClick={() => setEditing(true)}
                  ref={editButtonRef}
               >
-                Edit <span className="visually-hidden">{props.name}</span>
+                 <span className="visually-hidden">{props.name}</span>
+                 <BiEdit/>
+                
               </button>
 
               <button
