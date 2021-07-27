@@ -4,6 +4,7 @@ import ToDo from './components/ToDo'
 import Form from './components/Form'
 import FilterButton from './components/FilterButton'
 import usePrevious from './functions/Previous'
+import { WiMoonAltFirstQuarter } from 'react-icons/wi'
 
 
 const FILTER_MAP = {
@@ -91,6 +92,7 @@ function App(props) {
   return (
 
     <div className="todoapp stack-large">
+      <WiMoonAltFirstQuarter style={{ fontSize: 28 }} className="dark-mode" />
       <h1>My Agenda</h1>
 
       <Form addTask={addTask} />
