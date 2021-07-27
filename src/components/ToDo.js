@@ -18,7 +18,10 @@ export default function Todo(props) {
 
     const handleSubmit = e => {
       e.preventDefault()
-      props.editTask(props.id, newName)
+      if (newName.length >= 3) {
+        props.editTask(props.id, newName)
+        localStorage.setItem("Task", newName)
+      }
       setNewName('')
       setEditing(false)
     }
