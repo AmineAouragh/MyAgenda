@@ -6,7 +6,10 @@ function Form(props) {
 
     const handleSubmit = e => {
         e.preventDefault()
-        props.addTask(name)
+        if (name.length >= 3) {
+          props.addTask(name)
+          localStorage.setItem("Task", name)
+        }
         setName("")
     }
 
