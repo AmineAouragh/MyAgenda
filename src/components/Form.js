@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { FaPlus } from 'react-icons/fa'
 
 function Form(props) {
 
@@ -35,7 +36,8 @@ function Form(props) {
           onChange={handleChange}
         />
         <button type="submit" className="btn btn__primary btn__lg">
-          Add
+          Add New Task
+          <FaPlus style={{ marginLeft: 12, paddingTop: 5 }} />
         </button>
       </form>
 
