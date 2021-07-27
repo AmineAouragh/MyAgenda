@@ -86,6 +86,9 @@ body {
   text-decoration: underline;
   border-color: #4d4d4d;
 }
+.btn__edit {
+  background-color: #FFC300;
+}
 .btn__danger {
   color: #fff;
   background-color: #ca3c3c;
@@ -96,7 +99,7 @@ body {
 }
 .btn__primary {
   color: #fff;
-  background-color: #000;
+  background-color: #1569C7;
 }
 .btn-group {
   display: flex;
