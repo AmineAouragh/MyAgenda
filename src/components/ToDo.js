@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import usePrevious from '../functions/Previous'
 import { BiEdit } from 'react-icons/bi'
-
+import { FiTrash2 } from 'react-icons/fi'
 
 export default function Todo(props) {
 
@@ -85,8 +85,10 @@ export default function Todo(props) {
                  onClick={() => setEditing(true)}
                  ref={editButtonRef}
               >
+                <BiEdit style={{ marginRight: 12, paddingTop: 3 }}/>
+                Edit
                  <span className="visually-hidden">{props.name}</span>
-                 <BiEdit/>
+                 
                 
               </button>
 
@@ -95,7 +97,9 @@ export default function Todo(props) {
                 className="btn btn__danger"
                 onClick={() => props.deleteTask(props.id)}
               >
+                <FiTrash2 style={{ marginRight: 12, paddingTop: 3 }} />
                 Delete <span className="visually-hidden">{props.name}</span>
+                
               </button>
 
           </div>
