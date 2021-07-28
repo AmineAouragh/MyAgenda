@@ -36,8 +36,9 @@ function Form(props) {
           onChange={handleChange}
         />
         <button type="submit" className="btn btn__primary btn__lg">
-          Add New Task
-          <FaPlus style={{ marginLeft: 12, paddingTop: 5 }} />
+          <FaPlus style={{ marginRight: 12, paddingTop: 5 }} />
+          Add Task
+          
         </button>
       </form>
 
