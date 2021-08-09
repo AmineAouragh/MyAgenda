@@ -5,7 +5,7 @@ import Form from './components/Form'
 import FilterButton from './components/FilterButton'
 import usePrevious from './functions/Previous'
 import { WiMoonAltFirstQuarter } from 'react-icons/wi'
-
+import tasksArray from './components/Form'
 
 const FILTER_MAP = {
   All: () => true,
@@ -89,11 +89,23 @@ function App(props) {
     }
   }, [tasks.length, prevTaskLength])
 
+  const allStoredTasks = () => {
+    var values = []
+    var keys = Object.keys(localStorage)
+    var i = keys.length
+    while (i--) {
+      values.push(localStorage.getItem(keys[i]))
+    }
+    return values
+  }
+
   return (
 
     <div className="todoapp stack-large">
-      <WiMoonAltFirstQuarter style={{ fontSize: 28 }} className="dark-mode" />
-      <h1>My Agenda</h1>
+      <button>
+         <WiMoonAltFirstQuarter style={{ fontSize: 28 }} className="dark-mode" />
+      </button>
+      <h1>My ToDo</h1>
 
       <Form addTask={addTask} />
 
@@ -113,11 +125,11 @@ function App(props) {
       >
         
         {taskList}
+        {allStoredTasks()}
 
       </ul>
     </div>
   )
 }
-
 
 export default App
