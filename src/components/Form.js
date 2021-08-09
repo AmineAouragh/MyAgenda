@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FaPlus } from 'react-icons/fa'
+import { nanoid } from 'nanoid'
 
 function Form(props) {
 
@@ -7,9 +8,11 @@ function Form(props) {
 
     const handleSubmit = e => {
         e.preventDefault()
+        let taskArray = []
         if (name.length >= 3) {
           props.addTask(name)
-          localStorage.setItem("Task", name)
+          taskArray.push(name)
+          localStorage.setItem(`Task-${nanoid()}`, taskArray)
         }
         setName("")
     }
